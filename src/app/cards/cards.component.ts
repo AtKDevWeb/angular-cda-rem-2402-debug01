@@ -8,15 +8,19 @@ import { Card } from '../models/card.model';
   templateUrl: './cards.component.html',
   styleUrl: './cards.component.scss'
 })
+
 export class CardsComponent {
-  cards: Card = [
+  cards: Card [] = []; // initialisation de la variable 
+
+  constructor(){ // constucteur de classe nécéssaire pour l'initialisation de l'objet. 
+  this.cards = [
     {
       title: 'Produit 1',
       picture: 'https://via.placeholder.com/150',
       published: true,
       discount: 0,
       price: 120,
-      isFavorite: false
+      isFavorite: false,
     },
     {
       title: 'Produit 2',
@@ -25,7 +29,7 @@ export class CardsComponent {
       published: true,
       discount: 50,
       price: 60,
-      isFavorite: false
+      isFavorite: false,
     },
     {
       title: 'Produit 3',
@@ -34,7 +38,7 @@ export class CardsComponent {
       published: false,
       discount: 0,
       price: 230,
-      isFavorite: false
+      isFavorite: false,
     },
     {
       title: 'Produit 4',
@@ -42,7 +46,7 @@ export class CardsComponent {
       published: true,
       discount: 30,
       price: 50,
-      isFavorite: false
+      isFavorite: false,
     },
     {
       title: 'Produit 5',
@@ -51,7 +55,7 @@ export class CardsComponent {
       published: true,
       discount: 15,
       price: 70,
-      isFavorite: false
+      isFavorite: false,
     },
     {
       title: 'Produit 7',
@@ -60,9 +64,10 @@ export class CardsComponent {
       published: false,
       discount: 0,
       price: 599,
-      isFavorite: false
+      isFavorite: false,
     },
-  ]
+  ];
+}
 
   addToFavorite(card: Card) {
     card.isFavorite = true;
