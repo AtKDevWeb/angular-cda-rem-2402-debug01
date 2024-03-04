@@ -1,19 +1,19 @@
 <section class="cards-container">
-  <article ngFor="let card in cards" class="card" [ngClass]="cards.discount = 'card-discount' : 'card-not-discount'">
-    <p class="discount" ngIf="cards.discount">
-      {{ cards.discount }}% de réduction !
+  <article *ngFor="let card of cards" class="card" [ngClass]="card.discount ? 'card-discount' : 'card-not-discount'"> <!-- Structural Directive * -->
+    <p class="discount" *ngIf="cards.discount"> 
+      {{ card.discount }}% de réduction !
     </p>
-    <p ngIf="cards.isFavorite" class="heart">&#10084;</p>
-    <img src="cards.picture" [alt]="cards.tile" />
+    <p *ngIf="card.isFavorite" class="heart">&#10084;</p> <!-- Structural Directive * -->
+    <img [src]="card.picture" [alt]="cards.title" /> <!--Directive Attribute-->
     <h3>{ card.title }</h3>
     <p>
-      { card.description }
+      {{ card.description }}
     </p>
     <p>
-      Prix : { card.price } Euros
+      Prix : {{ card.price }} Euros <!--propity binding--> 
     </p>
     <footer>
-      <button [clicke]="addToFavorite(card)">J'aime</button>
+      <button (clicke)="addToFavorite(card)">J'aime</button> <!--event binding -->
     </footer>
   </article>
 </section>
